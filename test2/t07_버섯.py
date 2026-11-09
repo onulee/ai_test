@@ -2,6 +2,7 @@ from sklearn import svm,metrics
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.model_selection import train_test_split
 import pandas as pd
+from sklearn.neighbors import KNeighborsClassifier
 
 
 # 데이터 읽기---1
@@ -20,11 +21,13 @@ for row_index,row in df.iterrows():  # pandas DataFrame 데이터에서 행(row)
 # 학습데이터,테스트데이터 나누기---3
 train_data,test_data,train_label,test_label = train_test_split(data,label)
 # 데이터 학습시키기---4
-clf = RandomForestClassifier()
+clf = KNeighborsClassifier()
+# clf = RandomForestClassifier()
 clf.fit(train_data,train_label)
 # 데이터 예측하기---5
 predict = clf.predict(test_data)
 # 결과 테스트---6
+
 score = metrics.accuracy_score(test_label,predict)  
 report = metrics.classification_report(test_label,predict)
 print("정답률 : ",score) 

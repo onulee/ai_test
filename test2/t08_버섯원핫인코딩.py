@@ -9,6 +9,7 @@ df = pd.read_csv(
     header=None
 )
 
+
 # 2. 입력 데이터와 정답 분리
 X = df.iloc[:, 1:]
 y = df.iloc[:, 0]
@@ -32,19 +33,19 @@ clf = RandomForestClassifier(
     random_state=42
 )
 
-# # 6. 모델 학습
-# clf.fit(X_train, y_train)
+# 6. 모델 학습
+clf.fit(X_train, y_train)
 
-# # 7. 예측
-# predict = clf.predict(X_test)
+# 7. 예측
+predict = clf.predict(X_test)
 
-# # 8. 평가
-# score = metrics.accuracy_score(y_test, predict)
+# 8. 평가
+score = metrics.accuracy_score(y_test, predict)
 
-# report = metrics.classification_report(
-#     y_test, predict
-# )
+report = metrics.classification_report(
+    y_test, predict
+)
 
-# print("정답률 :", score)
-# print("분류 리포트 :")
-# print(report)
+print("정답률 :", score)
+print("분류 리포트 :")
+print(report)
