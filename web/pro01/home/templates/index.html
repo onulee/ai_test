@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+       function chartBtn(){
+            //alert('차트그래프를 가져옵니다.');
+            //차트그래프------------------------------------------
+            const ctx = document.getElementById('myChart');
+
+            new Chart(ctx, {
+                type: 'bar',
+                data: {
+                labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+                datasets: [{
+                    label: '# of Votes',
+                    data: [1200, 1900, 300, 500, {{result}}, 300],
+                    borderWidth: 1
+                }]
+                },
+                options: {
+                scales: {
+                    y: {
+                    beginAtZero: true
+                    }
+                }
+                }
+            });
+            //---------------------------------------------------
+
+        }//chartBtn
+        
+    </script>
+
+    <title>Document</title>
+</head>
+<body>
+    <h1>메인페이지</h1>
+    <h2>예측 : {{result}}</h2>
+    <div>
+        <input type='text' name='data'><br>
+        <button type='button' id='btn' onclick='chartBtn()'>데이터 가져오기</button>
+    </div>
+    <div id="graph" style="width: 80%; margin: 30px;">
+        <div>
+            <canvas id="myChart" height="350" width="600"></canvas>
+        </div>
+    </div>
+
+</body>
+</html>

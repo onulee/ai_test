@@ -28,6 +28,7 @@ perch_weight = [5.9, 32.0, 40.0, 51.5, 70.0, 100.0, 78.0, 80.0, 85.0, 85.0,
      1000.0, 1000.0]
 
 # 훈련데이터, 테스트데이터 분리
+
 train_data, test_data, train_label, test_label = \
     train_test_split(df, perch_weight, random_state=42)
 
