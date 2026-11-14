@@ -9,10 +9,7 @@ import openai
 from dotenv import load_dotenv
 from openai import OpenAI
 
-# 소스 파일의 위치를 기준으로 과정 기본 디렉터리를 계산합니다.
-BASE_DIR = Path(__file__).resolve().parent.parent
-ENV_FILE = BASE_DIR / ".env"
-load_dotenv(ENV_FILE)
+load_dotenv()
 
 # 실제 키를 출력하지 않고 존재 여부만 검사합니다.
 api_key = os.getenv("OPENAI_API_KEY")
